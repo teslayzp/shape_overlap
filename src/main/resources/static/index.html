@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Overlap Detector</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Shape Overlap Detector</h1>
+        </header>
+        
+        <div class="main-content">
+            <div class="controls">
+                <div class="auto-generator">
+                    <h3>Auto Generate Shapes</h3>
+                    <div class="generator-controls">
+                        <label>Number of Shapes:
+                            <input type="number" id="numShapes" value="5" min="2" max="100">
+                        </label>
+                        <label>Shape Type:
+                            <select id="autoShapeType">
+                                <option value="circle">Circles</option>
+                                <option value="regular_polygon">Regular Polygons</option>
+                                <option value="irregular_polygon">Irregular Polygons</option>
+                                <option value="mixed">Mixed Shapes</option>
+                            </select>
+                        </label>
+                        <div id="autoPolygonControls">
+                            <label>Min Sides:
+                                <input type="number" id="minSides" value="3" min="3" max="50">
+                            </label>
+                            <label>Max Sides:
+                                <input type="number" id="maxSides" value="12" min="3" max="50">
+                            </label>
+                            <label>Min Size:
+                                <input type="number" id="minSize" value="30" min="10" max="100">
+                            </label>
+                            <label>Max Size:
+                                <input type="number" id="maxSize" value="60" min="10" max="100">
+                            </label>
+                        </div>
+                        <button id="generateShapes">Generate & Check Overlaps</button>
+                    </div>
+                </div>
+
+                <div class="shape-selector">
+                    <h3>Add Shape Manually</h3>
+                    <select id="shapeType">
+                        <option value="circle">Circle</option>
+                        <option value="regular_polygon">Regular Polygon</option>
+                        <option value="irregular_polygon">Irregular Polygon</option>
+                    </select>
+                    
+                    <div id="circleControls" class="shape-controls">
+                        <label>Radius: <input type="number" id="circleRadius" value="50" min="1" max="200"></label>
+                    </div>
+                    
+                    <div id="regularPolygonControls" class="shape-controls" style="display: none;">
+                        <label>Sides: <input type="number" id="polygonSides" value="4" min="3" max="50"></label>
+                        <label>Radius: <input type="number" id="polygonRadius" value="50" min="1" max="200"></label>
+                        <label>Rotation: <input type="number" id="polygonRotation" value="0" min="0" max="360"></label>
+                    </div>
+
+                    <button id="addShape">Add Shape</button>
+                </div>
+
+                <div class="shape-list">
+                    <h3>Shapes</h3>
+                    <ul id="shapesList"></ul>
+                    <button id="checkOverlap">Check Overlaps</button>
+                    <button id="clearShapes">Clear All</button>
+                </div>
+            </div>
+
+            <div class="canvas-container">
+                <canvas id="shapeCanvas"></canvas>
+            </div>
+
+            <div class="results">
+                <h3>Overlap Results</h3>
+                <div id="overlapResults"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/shapes.js"></script>
+</body>
+</html> 
